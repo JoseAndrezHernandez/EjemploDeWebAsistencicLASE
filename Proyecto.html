@@ -4,20 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduAttend - Plataforma de Asistencia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3B82F6',
-                        secondary: '#10B981',
-                        accent: '#F59E0B'
-                    }
-                }
-            }
+    <style>
+        /* Tailwind CSS compilado - versión mínima para el proyecto */
+        *,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,"Consolas","Liberation Mono","Courier New",monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}
+
+        /* Variables CSS personalizadas */
+        :root {
+            --primary: #3B82F6;
+            --secondary: #10B981;
+            --accent: #F59E0B;
         }
-    </script>
+
+        /* Clases de utilidad principales */
+        .bg-gray-50 { background-color: #f9fafb; }
+        .bg-white { background-color: #ffffff; }
+        .bg-gray-100 { background-color: #f3f4f6; }
+        .bg-gray-200 { background-color: #e5e7eb; }
+        .bg-gray-300 { background-color: #d1d5db; }
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-accent { background-color: var(--accent); }
+        .bg-green-100 { background-color: #dcfce7; }
+        .bg-green-500 { background-color: #22c55e; }
+        .bg-yellow-100 { background-color: #fef3c7; }
+        .bg-yellow-500 { background-color: #eab308; }
+        .bg-red-500 { background-color: #ef4444; }
+        .bg-blue-500 { background-color: #3b82f6; }
+
+        .text-white { color: #ffffff; }
+        .text-gray-500 { color: #6b7280; }
+        .text-gray-600 { color: #4b5563; }
+        .text-gray-700 { color: #374151; }
+        .text-gray-800 { color: #1f2937; }
+        .text-gray-900 { color: #111827; }
+        .text-primary { color: var(--primary); }
+        .text-green-800 { color: #166534; }
+        .text-yellow-800 { color: #92400e; }
+
+        .border { border-width: 1px; }
+        .border-b { border-bottom-width: 1px; }
+        .border-2 { border-width: 2px; }
+        .border-gray-200 { border-color: #e5e7eb; }
+        .border-gray-300 { border-color: #d1d5db; }
+        .border-primary { border-color: var(--primary); }
+        .border-dashed { border-style: dashed; }
+        .border-transparent { border-color: transparent; }
+
+        .rounded { border-radius: 0.25rem; }
+        .rounded-md { border-radius: 0.375rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-full { border-radius: 9999px; }
+
+        .shadow { box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+
+        .p-2 { padding: 0.5rem; }
+        .p-3 { padding: 0.75rem; }
+        .p-4 { padding: 1rem; }
+        .p-5 { padding: 1.25rem; }
+        .p-6 { padding: 1.5rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .pb-4 { padding-bottom: 1rem; }
+        .pb-8 { padding-bottom: 2rem; }
+        .pt-1 { padding-top: 0.25rem; }
+
+        .m-0 { margin: 0; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .ml-2 { margin-left: 0.5rem; }
+        .ml-5 { margin-left: 1.25rem; }
+        .mr-2 { margin-right: 0.5rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-3 { margin-top: 0.75rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .-mb-8 { margin-bottom: -2rem; }
+        .-ml-px { margin-left: -1px; }
+
+        .w-0 { width: 0; }
+        .w-4 { width: 1rem; }
+        .w-5 { width: 1.25rem; }
+        .w-6 { width: 1.5rem; }
+        .w-8 { width: 2rem; }
+        .w-10 { width: 2.5rem; }
+        .w-32 { width: 8rem; }
+        .w-full { width: 100%; }
+        .w-11\/12 { width: 91.666667%; }
+
+        .h-4 { height: 1rem; }
+        .h-5 { height: 1.25rem; }
+        .h-6 { height: 1.5rem; }
+        .h-8 { height: 2rem; }
+        .h-10 { height: 2.5rem; }
+        .h-16 { height: 4rem; }
+        .h-32 { height: 8rem; }
+        .h-full { height: 100%; }
+        .min-h-screen { min-height: 100vh; }
+
+        .max-w-7xl { max-width: 80rem; }
+        .max-h-64 { max-height: 16rem; }
+
+        .flex { display: flex; }
+        .inline-flex { display: inline-flex; }
+        .grid { display: grid; }
+        .hidden { display: none; }
+        .block { display: block; }
+
+        .flex-1 { flex: 1 1 0%; }
+        .flex-shrink-0 { flex-shrink: 0; }
+        .flex-col { flex-direction: column; }
+
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-end { justify-content: flex-end; }
+
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+        .gap-3 { gap: 0.75rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
+
+        .space-x-2 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.5rem; }
+        .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.75rem; }
+        .space-x-4 > :not([hidden]) ~ :not([hidden]) { margin-left: 1rem; }
+        .space-x-8 > :not([hidden]) ~ :not([hidden]) { margin-left: 2rem; }
+        .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
+        .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+        .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+        .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+
+        .overflow-hidden { overflow: hidden; }
+        .overflow-y-auto { overflow-y: auto; }
+
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .fixed { position: fixed; }
+
+        .top-4 { top: 1rem; }
+        .top-20 { top: 5rem; }
+        .left-4 { left: 1rem; }
+        .right-0 { right: 0; }
+        .bottom-0 { bottom: 0; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+
+        .z-50 { z-index: 50; }
+
+        .cursor-pointer { cursor: pointer; }
+
+        .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .whitespace-nowrap { white-space: nowrap; }
+
+        .ring-8 { box-shadow: 0 0 0 8px var(--tw-ring-color); }
+        .ring-white { --tw-ring-color: #ffffff; }
+
+        .flow-root { display: flow-root; }
+
+        /* Hover effects */
+        .hover\:bg-gray-50:hover { background-color: #f9fafb; }
+        .hover\:bg-blue-700:hover { background-color: #1d4ed8; }
+        .hover\:text-gray-700:hover { color: #374151; }
+        .hover\:text-gray-900:hover { color: #111827; }
+        .hover\:text-gray-600:hover { color: #4b5563; }
+
+        /* Responsive */
+        @media (min-width: 640px) {
+            .sm\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+
+        @media (min-width: 768px) {
+            .md\:flex { display: flex; }
+            .md\:hidden { display: none; }
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\:w-3\/4 { width: 75%; }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .lg\:col-span-2 { grid-column: span 2 / span 2; }
+            .lg\:w-1\/2 { width: 50%; }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header -->
@@ -47,6 +237,7 @@
                         </svg>
                     </button>
                     <div class="flex items-center space-x-3">
+                        <div class="h-8 w-8 rounded-full bg-gray-300"></div>
                         <span class="text-sm font-medium text-gray-700">Prof. García</span>
                     </div>
                 </div>
@@ -163,7 +354,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                                         En curso
                                     </span>
                                     <button class="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
@@ -185,7 +376,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                                         Próxima
                                     </span>
                                     <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium">
@@ -207,7 +398,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                                         Programada
                                     </span>
                                     <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium">
@@ -263,7 +454,7 @@
                             <ul class="-mb-8">
                                 <li>
                                     <div class="relative pb-8">
-                                        <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                                        <span class="absolute top-4 left-4 -ml-px h-full w-0 bg-gray-200" style="width: 2px;" aria-hidden="true"></span>
                                         <div class="relative flex space-x-3">
                                             <div>
                                                 <span class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center ring-8 ring-white">
@@ -272,7 +463,7 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                                            <div class="min-w-0 flex-1 pt-1 flex justify-between space-x-4">
                                                 <div>
                                                     <p class="text-sm text-gray-500">Asistencia tomada para <span class="font-medium text-gray-900">Matemáticas</span></p>
                                                 </div>
@@ -285,7 +476,7 @@
                                 </li>
                                 <li>
                                     <div class="relative pb-8">
-                                        <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                                        <span class="absolute top-4 left-4 -ml-px h-full w-0 bg-gray-200" style="width: 2px;" aria-hidden="true"></span>
                                         <div class="relative flex space-x-3">
                                             <div>
                                                 <span class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white">
@@ -294,7 +485,7 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                                            <div class="min-w-0 flex-1 pt-1 flex justify-between space-x-4">
                                                 <div>
                                                     <p class="text-sm text-gray-500">Nuevo estudiante <span class="font-medium text-gray-900">Ana López</span> agregado</p>
                                                 </div>
@@ -315,7 +506,7 @@
                                                     </svg>
                                                 </span>
                                             </div>
-                                            <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
+                                            <div class="min-w-0 flex-1 pt-1 flex justify-between space-x-4">
                                                 <div>
                                                     <p class="text-sm text-gray-500">Alerta: Baja asistencia en <span class="font-medium text-gray-900">Física</span></p>
                                                 </div>
@@ -328,87 +519,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Attendance Modal (Hidden by default) -->
-        <div id="attendanceModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-            <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
-                <div class="mt-3">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-medium text-gray-900">Tomar Asistencia - Matemáticas Avanzadas</h3>
-                        <button class="text-gray-400 hover:text-gray-600">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <div class="text-center">
-                                <div class="w-32 h-32 mx-auto bg-white border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
-                                    <div class="text-center">
-                                        <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h4"></path>
-                                        </svg>
-                                        <p class="mt-2 text-sm text-gray-500">Código QR</p>
-                                    </div>
-                                </div>
-                                <p class="mt-2 text-sm text-gray-600">Los estudiantes pueden escanear este código para marcar su asistencia</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <h4 class="font-medium text-gray-900">Lista de Estudiantes</h4>
-                        <div class="max-h-64 overflow-y-auto">
-                            <div class="space-y-2">
-                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center space-x-3">
-                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                                        <span class="text-sm font-medium">María González</span>
-                                    </div>
-                                    <div class="flex items-center space-x-2">
-                                        <button class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Presente</button>
-                                        <button class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-medium">Ausente</button>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center space-x-3">
-                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                                        <span class="text-sm font-medium">Carlos Ruiz</span>
-                                    </div>
-                                    <div class="flex items-center space-x-2">
-                                        <button class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Presente</button>
-                                        <button class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-medium">Ausente</button>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                                    <div class="flex items-center space-x-3">
-                                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                                        <span class="text-sm font-medium">Luis Martínez</span>
-                                    </div>
-                                    <div class="flex items-center space-x-2">
-                                        <button class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">Presente</button>
-                                        <button class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs font-medium">Ausente</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 flex justify-end space-x-3">
-                        <button class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
-                            Cancelar
-                        </button>
-                        <button class="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium hover:bg-blue-700">
-                            Guardar Asistencia
-                        </button>
                     </div>
                 </div>
             </div>
